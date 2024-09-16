@@ -8,7 +8,6 @@
 
 # Instale as dependências e o framework
 ## composer install --no-scripts
-## npm install
 
 
 # Copie o arquivo .env.example
