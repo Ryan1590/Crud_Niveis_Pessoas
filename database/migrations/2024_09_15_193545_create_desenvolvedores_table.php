@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('nivel_id')->constrained('niveis'); // Chave estrangeira para a tabela 'niveis'
             $table->string('nome');
             $table->string('sexo');
-            $table->date('data_nasciento');
+            $table->date('data_nascimento');
             $table->string('hobby')->nullable();  // Campo 'hobby' do tipo varchar, pode ser nulo
             $table->timestamps();
         });

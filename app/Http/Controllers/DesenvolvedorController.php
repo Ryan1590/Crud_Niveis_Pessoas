@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Desenvolvedores;
+use App\Models\Niveis;
 use Illuminate\Http\Request;
 
 class DesenvolvedorController extends Controller
@@ -11,7 +13,8 @@ class DesenvolvedorController extends Controller
      */
     public function index()
     {
-        //
+        $Dev = Desenvolvedores::with('niveis')->get(); // Carrega o nível relacionado
+        return view('Desenvolvedor', ['devs' => $Dev]);
     }
 
     /**
@@ -19,7 +22,9 @@ class DesenvolvedorController extends Controller
      */
     public function create()
     {
-        //
+        $Dev = Desenvolvedores::all();
+        $niveis = Niveis::all();
+        return view('DesenvolvedorCreate', ['devs'=> $Dev, 'niveis'=>$niveis]);
     }
 
     /**
@@ -27,7 +32,17 @@ class DesenvolvedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nome' => 'required|string|max:255',
+            'sexo' => 'required|string',
+            'data_nascimento' => 'required|date',
+            'hobby' => 'nullable|string',
+            'nivel_id' => 'required|exists:niveis,id',
+        ]);
+    
+        Desenvolvedores::create($validated);
+    
+        return redirect()->route('desenvolvedores.store')->with('success', 'Desenvolvedor criado com sucesso!');
     }
 
     /**

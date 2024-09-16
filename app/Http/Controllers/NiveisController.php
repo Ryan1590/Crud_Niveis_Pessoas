@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Niveis;
 use Illuminate\Http\Request;
 
 class NiveisController extends Controller
@@ -11,7 +12,7 @@ class NiveisController extends Controller
      */
     public function index()
     {
-        //
+     
     }
 
     /**
@@ -19,7 +20,8 @@ class NiveisController extends Controller
      */
     public function create()
     {
-        //
+
+        
     }
 
     /**
