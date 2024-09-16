@@ -36,8 +36,6 @@
 # Em seguida você deve configurar o arquivo .env e rodar as migrations com:
 ## php artisan migrate --seed
 
-# Para instalar a node modules
-## npm install
 
 # Para statar o servidor
 ## php artisan serve
