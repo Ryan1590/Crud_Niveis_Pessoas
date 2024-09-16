@@ -14,7 +14,7 @@ class DesenvolvedorController extends Controller
     public function index()
     {
         $Dev = Desenvolvedores::with('niveis')->get(); // Carrega o nível relacionado
-        return view('Desenvolvedor', ['devs' => $Dev]);
+        return view('Desenvolvedores', ['devs' => $Dev]);
     }
 
     /**
@@ -24,7 +24,7 @@ class DesenvolvedorController extends Controller
     {
         $Dev = Desenvolvedores::all();
         $niveis = Niveis::all();
-        return view('DesenvolvedorCreate', ['devs'=> $Dev, 'niveis'=>$niveis]);
+        return view('CreateDesenvolvedor', ['devs'=> $Dev, 'niveis'=>$niveis]);
     }
 
     /**
@@ -42,7 +42,7 @@ class DesenvolvedorController extends Controller
     
         Desenvolvedores::create($validated);
     
-        return redirect()->route('desenvolvedores.store')->with('success', 'Desenvolvedor criado com sucesso!');
+        return redirect()->route('desenvolvedores.index')->with('success', 'Desenvolvedor criado com sucesso!');
     }
 
     /**
@@ -74,6 +74,13 @@ class DesenvolvedorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $dev = Desenvolvedores::find($id);
+
+        if($dev) {
+            $dev->delete();
+            return redirect()->route('desenvolvedores.index')->with('success', 'Livro excluído com sucesso!');
+        }else{
+            return redirect()->route('desenvolvedores.index')->with('error', 'Desenvolvedor não encontrado');
+        }
     }
 }

@@ -1,5 +1,5 @@
 # Clone o projeto
-## git clone https://github.com/Ryan1590/CrudNiveisPessoas.git
+## git clone https://github.com/rickjshow/Painel-Adm-Casa-da-Paz.git
 
 
 # Acesse o projeto
@@ -8,6 +8,7 @@
 
 # Instale as dependências e o framework
 ## composer install --no-scripts
+## npm install
 
 
 # Copie o arquivo .env.example
@@ -24,7 +25,7 @@
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=niveis_pessoas_db
+DB_DATABASE=casadapaz
 DB_USERNAME=root
 DB_PASSWORD=
 

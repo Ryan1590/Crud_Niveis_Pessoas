@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('desenvolvedores', [DesenvolvedorController::class, 'index']); //lista devs
-Route::get('desenvolvedor/create', [DesenvolvedorController::class, 'create']); // tela create
+Route::get('desenvolvedores', [DesenvolvedorController::class, 'index'])->name('desenvolvedores.index'); //lista devs
+Route::get('desenvolvedores/create', [DesenvolvedorController::class, 'create']); // tela create
 Route::post('desenvolvedores', [DesenvolvedorController::class, 'store'])->name('desenvolvedores.store'); // create desenvolvedores
+Route::delete('desenvolvedores/{id}', [DesenvolvedorController::class, 'destroy'])->name('desenvolvedores.destroy'); // destroy desenvolvedores
