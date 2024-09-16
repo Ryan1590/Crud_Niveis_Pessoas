@@ -22,12 +22,17 @@
 # Configurar o .env 
 
 ## exemplo:
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=casadapaz
-DB_USERNAME=root
-DB_PASSWORD=
+### DB_CONNECTION=mysql
+
+### DB_HOST=127.0.0.1
+
+### DB_PORT=3306
+
+### DB_DATABASE=casadapaz
+
+### DB_USERNAME=root
+
+### DB_PASSWORD=
 
 # Em seguida você deve configurar o arquivo .env e rodar as migrations com:
 ## php artisan migrate --seed
