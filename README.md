@@ -28,7 +28,7 @@
 
 ### DB_PORT=3306
 
-### DB_DATABASE=casadapaz
+### DB_DATABASE=niveis_pessoas_db
 
 ### DB_USERNAME=root
 
