@@ -34,7 +34,7 @@
 ### DB_PASSWORD=
 
 # Em seguida você deve configurar o arquivo .env e rodar as migrations com:
-## php artisan migrate --seed
+## php artisan migrate
 
 
 # Para statar o servidor
