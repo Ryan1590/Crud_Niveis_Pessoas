@@ -32,9 +32,10 @@
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col" class="text-center">#</th>
-                    <th scope="col" class="text-center">Nível</th>
-                    <th scope="col" class="text-center">Ações</th>
+                    <th scope="col" class="text-center" style="width: 10%;">#</th>
+                    <th scope="col" class="text-center" style="width: 30%;">Nível</th>
+                    <th scope="col" class="text-center" style="width: 40%;">Data criação</th>
+                    <th scope="col" class="text-center" style="width: 20%;">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +43,7 @@
                 <tr>
                     <td>{{ $nivel->id }}</td>
                     <td>{{ $nivel->nivel }}</td>
+                    <td class="text-center">{{ $nivel->created_at }}</td>
                     <td class="text-center">
                         <a href="">
                             <button class="btn btn-primary">Editar</button>
