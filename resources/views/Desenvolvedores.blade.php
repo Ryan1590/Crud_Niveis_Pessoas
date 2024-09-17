@@ -1,14 +1,20 @@
+<<<<<<< HEAD
 @extends('templates.template')
 
 @section('content')
 
+=======
+>>>>>>> bca4cb8aa23f1c1be4af704066bd1aa51632b4eb
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+=======
+>>>>>>> bca4cb8aa23f1c1be4af704066bd1aa51632b4eb
     <title>Desenvolvedores</title>
     <style>
         .alert-custom {
@@ -27,7 +33,11 @@
     <h1 class="text-center mb-4">Desenvolvedores</h1>
 
     <div class="d-flex justify-content-end mb-4">
+<<<<<<< HEAD
         <a href="{{url('create/desenvolvedores')}}" class="btn btn-primary">Cadastrar</a>
+=======
+        <a href="{{url('desenvolvedores/create')}}" class="btn btn-primary">Cadastrar</a>
+>>>>>>> bca4cb8aa23f1c1be4af704066bd1aa51632b4eb
     </div>
 
     <div class="table-responsive">
@@ -67,6 +77,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <script>
     const deleteButtons = document.querySelectorAll('.btn-delete');
     deleteButtons.forEach(button => {
@@ -95,3 +106,20 @@
 </body>
 </html>
 @endsection
+=======
+@if(session('success'))
+    <div class="alert alert-success alert-custom">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger alert-custom">
+        {{ session('error') }}
+    </div>
+@endif
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
+</body>
+</html>
+>>>>>>> bca4cb8aa23f1c1be4af704066bd1aa51632b4eb
