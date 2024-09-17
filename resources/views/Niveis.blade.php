@@ -32,9 +32,10 @@
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col" class="text-center" style="width: 10%;">#</th>
-                    <th scope="col" class="text-center" style="width: 30%;">Nível</th>
-                    <th scope="col" class="text-center" style="width: 40%;">Data criação</th>
+                    <th scope="col" class="text-center" style="width: 5%;">#</th>
+                    <th scope="col" class="text-center" style="width: 25%;">Nível</th>
+                    <th scope="col" class="text-center" style="width: 30%;">Hora criação</th>
+                    <th scope="col" class="text-center" style="width: 20%;">Hora Edição</th>
                     <th scope="col" class="text-center" style="width: 20%;">Ações</th>
                 </tr>
             </thead>
@@ -43,7 +44,8 @@
                 <tr>
                     <td>{{ $nivel->id }}</td>
                     <td>{{ $nivel->nivel }}</td>
-                    <td class="text-center">{{ $nivel->created_at }}</td>
+                    <td>{{ $nivel->created_at }}</td>
+                    <td>{{ $nivel->updated_at }}</td>
                     <td class="text-center">
                         <a href="">
                             <button class="btn btn-primary">Editar</button>
