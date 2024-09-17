@@ -11,8 +11,9 @@ class NiveisController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-     
+    {   
+      $niveis = Niveis::get();
+      return view('Niveis', ['niveis' => $niveis]);
     }
 
     /**
@@ -61,6 +62,13 @@ class NiveisController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $niveis = Niveis::find($id);
+    
+        if($niveis){
+            $niveis->delete();
+            return redirect()->route('niveis.index')->with('success', 'Nivel excluído com sucesso!');
+        }else{
+            return redirect()->route('niveis.index')->with('error', 'Nivel não encontrado');
+        }
     }
 }

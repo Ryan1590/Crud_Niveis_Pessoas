@@ -17,7 +17,7 @@
                         <a class="nav-link" href="/desenvolvedores">Desenvolvedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#nivel">Níveis</a>
+                        <a class="nav-link" href="/">Níveis</a>
                     </li>
                 </ul>
             </div>
