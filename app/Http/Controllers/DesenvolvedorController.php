@@ -78,11 +78,7 @@ class DesenvolvedorController extends Controller
 
         if($dev) {
             $dev->delete();
-<<<<<<< HEAD
             return redirect()->route('desenvolvedores.index')->with('success', 'Desenvolvedor excluído com sucesso!');
-=======
-            return redirect()->route('desenvolvedores.index')->with('success', 'Livro excluído com sucesso!');
->>>>>>> bca4cb8aa23f1c1be4af704066bd1aa51632b4eb
         }else{
             return redirect()->route('desenvolvedores.index')->with('error', 'Desenvolvedor não encontrado');
         }
