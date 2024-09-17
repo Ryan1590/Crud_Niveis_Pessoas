@@ -22,6 +22,7 @@ class NiveisController extends Controller
     public function create()
     {
 
+       return view('CreateNiveis');
         
     }
 
@@ -30,7 +31,12 @@ class NiveisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nivel' => 'required|string|max:255',
+        ]);
+    
+        Niveis::create($validated);
+        return redirect()->route('niveis.index')->with('success', 'Nivel criado com sucesso!');
     }
 
     /**

@@ -41,7 +41,6 @@ class DesenvolvedorController extends Controller
         ]);
     
         Desenvolvedores::create($validated);
-    
         return redirect()->route('desenvolvedores.index')->with('success', 'Desenvolvedor criado com sucesso!');
     }
 

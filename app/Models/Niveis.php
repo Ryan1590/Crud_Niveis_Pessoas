@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Niveis extends Model
 {
     use HasFactory;
-    protected $fillable = ['niveis'];
+    protected $table = 'niveis';
+    protected $fillable = ['nivel'];
 
     public function desenvolvedores()
     {

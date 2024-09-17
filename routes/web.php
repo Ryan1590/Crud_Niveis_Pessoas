@@ -7,9 +7,10 @@ use App\Models\Niveis;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [NiveisController::class, 'index'])->name('niveis.index');
-Route::delete('niveis/{id}', [NiveisController::class, 'destroy'])->name('niveis.destroy');
-
+Route::get('/', [NiveisController::class, 'index'])->name('niveis.index'); // tela que lista os niveis
+Route::get('create/niveis', [NiveisController::class, 'create']); // tela de criar os niveis
+Route::post('/', [NiveisController::class, 'store'])->name('niveis.store'); // rota que cria os niveis
+Route::delete('niveis/{id}', [NiveisController::class, 'destroy'])->name('niveis.destroy'); // rota que deleta os niveis
 
 /*Routes de desenvolvedores*/ 
 Route::get('desenvolvedores', [DesenvolvedorController::class, 'index'])->name('desenvolvedores.index');  // tela que lista os desenvolvedores

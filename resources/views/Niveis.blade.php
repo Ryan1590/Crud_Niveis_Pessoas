@@ -7,9 +7,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <title>Niveis</title>
     <style>
         .alert-custom {
@@ -28,20 +25,22 @@
     <h1 class="text-center mb-4">Niveis</h1>
 
     <div class="d-flex justify-content-end mb-4">
-        <a href="" class="btn btn-primary">Cadastrar</a>
+        <a href="{{url('create/niveis')}}" class="btn btn-primary">Cadastrar</a>
     </div>
 
     <div class="table-responsive">
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
                 <tr>
+                    <th scope="col" class="text-center">#</th>
                     <th scope="col" class="text-center">Nível</th>
                     <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($niveis as $nivel)
+                @forelse($niveis as $nivel)
                 <tr>
+                    <td>{{ $nivel->id }}</td>
                     <td>{{ $nivel->nivel }}</td>
                     <td class="text-center">
                         <a href="">
@@ -54,7 +53,11 @@
                         </form>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="6" class="text-center">Nenhum nivel cadastrado</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
@@ -84,7 +87,6 @@
     });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
 </body>
 </html>
 @endsection
