@@ -47,7 +47,7 @@
                     <td>{{ \Carbon\Carbon::parse ($nivel->created_at)->format('d/m/Y H:i') }}</td>
                     <td>{{ \Carbon\Carbon::parse ($nivel->updated_at)->format('d/m/Y H:i') }}</td>
                     <td class="text-center">
-                        <a href="">
+                        <a href="{{url("niveis/$nivel->id/edit")}}">
                             <button class="btn btn-primary">Editar</button>
                         </a>
                         <form action="{{ route('niveis.destroy', $nivel->id) }}" method="POST" style="display:inline;">

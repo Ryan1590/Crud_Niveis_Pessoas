@@ -52,7 +52,8 @@ class NiveisController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $nivel = Niveis::find($id);
+        return view('CreateNiveis', compact('nivel'));
     }
 
     /**
@@ -60,7 +61,14 @@ class NiveisController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'nivel' => 'required|string|max:255',
+        ]);
+    
+        $nivel = Niveis::findOrFail($id);
+
+        $nivel->update($validated);
+        return redirect()->route('niveis.index')->with('success', 'Nivel Atualizado com sucesso!');
     }
 
     /**

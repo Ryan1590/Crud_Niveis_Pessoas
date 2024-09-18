@@ -11,6 +11,8 @@ Route::get('/', [NiveisController::class, 'index'])->name('niveis.index'); // te
 Route::get('create/niveis', [NiveisController::class, 'create']); // tela de criar os niveis
 Route::post('/', [NiveisController::class, 'store'])->name('niveis.store'); // rota que cria os niveis
 Route::delete('niveis/{id}', [NiveisController::class, 'destroy'])->name('niveis.destroy'); // rota que deleta os niveis
+Route::get('niveis/{id}/edit', [NiveisController::class, 'edit'])->name('niveis.edit'); 
+Route::put('niveis/{id}', [NiveisController::class, 'update'])->name('niveis.update');
 
 /*Routes de desenvolvedores*/ 
 Route::get('desenvolvedores', [DesenvolvedorController::class, 'index'])->name('desenvolvedores.index');  // tela que lista os desenvolvedores
