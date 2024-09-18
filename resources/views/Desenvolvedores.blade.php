@@ -52,7 +52,7 @@
                     <td>{{ $dev->hobby }}</td>
                     
                     <td class="text-center">
-                        <a href="">
+                        <a href="{{url("desenvolvedores/$dev->id/edit")}}">
                             <button class="btn btn-primary">Editar</button>
                         </a>
                         <form action="{{ route('desenvolvedores.destroy', $dev->id) }}" method="POST" style="display:inline;">

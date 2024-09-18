@@ -13,56 +13,59 @@
 <body>
 
 <h1 class="text-center mt-4">Cadastro</h1>
+
    
 <div class="container mt-4">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Cadastrar Desenvolvedor</h3>
+            <h3 class="card-title">@if(isset($devs)) Editar @else Cadastrar @endif Desesenvolvedor</h3>
         </div>
-        <div class="card-body">
-            <form action="{{route('desenvolvedores.store')}}" method="post">
-                @csrf
-                <div class="mb-3">
-                    <label for="nome" class="form-label">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="form-control border-primary" required>
-                </div>
+        @if(isset($devs))
+    <form action="{{ route('desenvolvedores.update', $devs->id) }}" method="post" name="formEdit" id="formEdit" class="p-4 border shadow rounded">
+        @method('PUT')
+@else 
+    <form action="{{ route('desenvolvedores.store') }}" method="post" name="formCard" id="formCard" class="p-4 border shadow rounded">
+@endif
 
-                <div class="mb-3">
-                    <label for="sexo" class="form-label">Sexo:</label>
-                    <select id="sexo" name="sexo" class="form-select border-primary" required>
-                        <option value="">Selecione</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
-                        <option value="Outro">Outro</option>
-                    </select>
-                </div>
+    @csrf
+    <div class="form-group mb-3">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="{{ $devs->nome ?? '' }}" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" class="form-control" required>
+            <option value="" disabled {{ !isset($devs) ? 'selected' : '' }}>Selecionar</option>
+            <option value="Masculino" {{ (isset($devs) && $devs->sexo == 'Masculino') ? 'selected' : '' }}>Masculino</option>
+            <option value="Feminino" {{ (isset($devs) && $devs->sexo == 'Feminino') ? 'selected' : '' }}>Feminino</option>
+            <option value="Outro" {{ (isset($devs) && $devs->sexo == 'Outro') ? 'selected' : '' }}>Outro</option>
+        </select>
+    </div>
+    <div class="form-group mb-3">
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="{{ $devs->data_nascimento ?? '' }}">
+    </div>
+    <div class="form-group mb-3">
+        <label for="hobby">Hobby:</label>
+        <textarea id="hobby" name="hobby" class="form-control" placeholder="Digite seu hobby" rows="3">{{ $devs->hobby ?? '' }}</textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label for="nivel_id">Níveis:</label>
+        <select id="nivel_id" name="nivel_id" class="form-control" required>
+            <option value="" disabled selected>Selecione um nível</option>
+            @foreach($niveis as $nivel)
+                <option value="{{ $nivel->id }}" {{ (isset($devs) && $devs->nivel_id == $nivel->id) ? 'selected' : '' }}>
+                    {{ $nivel->nivel }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">@if(isset($devs)) Atualizar @else Cadastrar @endif</button>
+        <a href="{{ route('desenvolvedores.index') }}" class="btn btn-secondary">Voltar</a>
+    </div>
+</form>
 
-                <div class="mb-3">
-                    <label for="data_nascimento" class="form-label">Data nascimento:</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento" class="form-control border-primary">
-                </div>
-
-                <div class="mb-3">
-                    <label for="hobby" class="form-label">Hobby:</label>
-                    <textarea id="hobby" name="hobby" class="form-control border-primary" placeholder="Digite seu hobby" rows="3"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="nivel_id" class="form-label">Níveis:</label>
-                    <select id="nivel_id" name="nivel_id" class="form-select border-primary" required>
-                        <option value="">Selecione um nível</option>
-                        @foreach($niveis as $nivel)
-                            <option value="{{ $nivel->id }}">{{ $nivel->nivel }}</option>
-                        @endforeach
-                    </select>
-                </div>
-        
-                <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                    <a href="/desenvolvedores" class="btn btn-secondary">Voltar</a>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 <br>

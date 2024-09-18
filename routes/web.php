@@ -17,4 +17,5 @@ Route::get('desenvolvedores', [DesenvolvedorController::class, 'index'])->name('
 Route::get('create/desenvolvedores', [DesenvolvedorController::class, 'create']); // tela de criar os desenvolvedores
 Route::post('desenvolvedores', [DesenvolvedorController::class, 'store'])->name('desenvolvedores.store'); // rota que cria os desenvolvedores
 Route::delete('desenvolvedores/{id}', [DesenvolvedorController::class, 'destroy'])->name('desenvolvedores.destroy'); // rota que deleta os desenvolvedores
-
+Route::get('desenvolvedores/{id}/edit', [DesenvolvedorController::class, 'edit'])->name('desenvolvedores.edit');
+Route::put('desenvolvedores/{id}', [DesenvolvedorController::class, 'update'])->name('desenvolvedores.update');

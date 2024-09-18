@@ -24,7 +24,7 @@ class DesenvolvedorController extends Controller
     {
         $Dev = Desenvolvedores::all();
         $niveis = Niveis::all();
-        return view('CreateDesenvolvedor', ['devs'=> $Dev, 'niveis'=>$niveis]);
+        return view('CreateDesenvolvedor', ['devs' => null, 'niveis'=>$niveis]);
     }
 
     /**
@@ -57,7 +57,9 @@ class DesenvolvedorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $devs = Desenvolvedores::find($id);
+        $niveis = Niveis::all();
+        return view('CreateDesenvolvedor', compact('devs', 'niveis'));
     }
 
     /**
@@ -65,7 +67,18 @@ class DesenvolvedorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'nome' => 'required|string|max:255',
+            'sexo' => 'required|string',
+            'data_nascimento' => 'required|date',
+            'hobby' => 'nullable|string',
+            'nivel_id' => 'required|exists:niveis,id',
+        ]);
+    
+        $dev = Desenvolvedores::findOrFail($id);
+
+        $dev->update($validated);
+        return redirect()->route('desenvolvedores.index')->with('success', 'Desenvolvedor Atualizado com sucesso!');
     }
 
     /**

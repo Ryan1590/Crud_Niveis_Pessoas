@@ -44,8 +44,8 @@
                 <tr>
                     <td>{{ $nivel->id }}</td>
                     <td>{{ $nivel->nivel }}</td>
-                    <td>{{ $nivel->created_at }}</td>
-                    <td>{{ $nivel->updated_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse ($nivel->created_at)->format('d/m/Y H:i') }}</td>
+                    <td>{{ \Carbon\Carbon::parse ($nivel->updated_at)->format('d/m/Y H:i') }}</td>
                     <td class="text-center">
                         <a href="">
                             <button class="btn btn-primary">Editar</button>
